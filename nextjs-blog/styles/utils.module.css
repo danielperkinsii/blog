@@ -28,6 +28,10 @@
   .borderCircle {
     border-radius: 9999px;
   }
+
+  .donutImgCrop {
+    object-position: right top;
+  }
   
   .colorInherit {
     color: inherit;
@@ -35,6 +39,10 @@
   
   .padding1px {
     padding-top: 1px;
+  }
+
+  .marginSides10px {
+    margin: 0 10px 0 10px;
   }
   
   .list {
@@ -49,4 +57,20 @@
   
   .lightText {
     color: #999;
+  }
+
+  .redText {
+    color: #FF0000;
+  }
+
+  .underlined {
+    text-decoration: underline;
+  }
+
+  .shadow {
+    box-shadow: 2px 2px #999;
+  }
+
+  .selected {
+    text-decoration: underline;
   }

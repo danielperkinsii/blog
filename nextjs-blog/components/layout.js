@@ -2,11 +2,12 @@ import Head from 'next/head'
 import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
+import Nav from './nav'
 
 const name = 'Daniel Perkins'
 export const siteTitle = 'Daniel Perkins\' Website'
 
-export default function Layout({ children, home }) {
+export default function Layout({ children, home, about, reading }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -19,22 +20,23 @@ export default function Layout({ children, home }) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header className={styles.header}>
-        { home ? (
+        { home || about || reading ? (
           <>
             <img
-              src="/images/profile.jpg"
-              className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
+              src="/images/profile.jpeg"
+              className={`${styles.headerHomeImage} ${utilStyles.borderCircle} ${utilStyles.donutImgCrop}`}
               alt={name}
             />
             <h1 className={utilStyles.heading2Xl}>{name}</h1>
+            <Nav/>
           </>
         ) : (
           <>
             <Link href="/">
               <a>
                 <img
-                  src="/images/profile.jpg"
-                  className={`${styles.headerImage} ${utilStyles.borderCircle}`}
+                  src="/images/profile.jpeg"
+                  className={`${styles.headerImage} ${utilStyles.borderCircle} ${utilStyles.donutImgCrop}`}
                   alt={name}
                 />
               </a>

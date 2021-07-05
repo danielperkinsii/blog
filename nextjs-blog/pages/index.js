@@ -9,10 +9,10 @@ import randomQuote from '../lib/quotes'
 
 export default function Home({ allPostsData }) {
 
-  const [yodaQuote, setYodaQuote] = useState()
+  const [quote, setQuote] = useState()
 
   useEffect(() => {
-    setYodaQuote(randomQuote)
+    setQuote(randomQuote)
   }, [])
 
   return (
@@ -21,8 +21,8 @@ export default function Home({ allPostsData }) {
         <title>{ siteTitle }</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className={utilStyles.headingMd}>
-        <p>{ yodaQuote }</p>
+      <section>
+        <p className={utilStyles.lightText}>{ quote }</p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
