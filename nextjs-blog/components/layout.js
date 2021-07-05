@@ -3,8 +3,8 @@ import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 
-const name = 'Your Name'
-export const siteTitle = 'Next.js Sample Website'
+const name = 'Daniel Perkins'
+export const siteTitle = 'Daniel Perkins\' Website'
 
 export default function Layout({ children, home }) {
   return (
@@ -25,7 +25,7 @@ export default function Layout({ children, home }) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header className={styles.header}>
-        {home ? (
+        { home ? (
           <>
             <img
               src="/images/profile.jpg"

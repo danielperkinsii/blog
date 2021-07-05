@@ -12,11 +12,13 @@
   }
   
   .headerImage {
+    object-fit: cover;
     width: 6rem;
     height: 6rem;
   }
   
   .headerHomeImage {
+    object-fit: cover;
     width: 8rem;
     height: 8rem;
   }
