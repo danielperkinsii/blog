@@ -22,7 +22,7 @@ export default function Home({ allPostsData }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <section>
-        <p className={utilStyles.lightText}>{ quote }</p>
+        <p className={utilStyles.headingMd}>{quote}</p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
