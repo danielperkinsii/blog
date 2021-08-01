@@ -18,7 +18,7 @@ export default function Home({ allPostsData }) {
   return (
     <Layout home>
       <Head>
-        <title>{ siteTitle }</title>
+        <title>{siteTitle}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <section>
