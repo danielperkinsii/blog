@@ -4,7 +4,7 @@ export default function About() {
     return (
         <>
             <Layout about>
-                something
+                <p>Hi, I'm Daniel.</p>
             </Layout>
         </>
     )

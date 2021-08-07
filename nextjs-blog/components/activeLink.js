@@ -2,19 +2,18 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import utilStyles from '../styles/utils.module.css'
 
-export default function ActiveLink({ children, href }) {
+export default function ActiveLink({ children, hrefLink }) {
   const router = useRouter()
-  const selected = router.asPath === href ? utilStyles.selected : ''
-
+  const selected = router.asPath === hrefLink ? utilStyles.selected : ''
 
   const handleClick = (e) => {
     e.preventDefault()
-    router.push(href)
+    router.push(hrefLink)
   }
 
   return (
     <>
-        <a href={href} onClick={handleClick} className={`${utilStyles.marginSides10px} ${selected}`}>
+        <a href={hrefLink} onClick={handleClick} className={`${utilStyles.marginSides10px} ${selected}`}>
             {children}
         </a>
     </>

@@ -22,7 +22,7 @@ export default function nav() {
         <>
             <nav>
                 {routes.map( routeOption => (
-                    <ActiveLink key={routeOption.pageName} href={routeOption.route} pageName={routeOption.pageName}>
+                    <ActiveLink key={routeOption.pageName} hrefLink={routeOption.route} pageName={routeOption.pageName}>
                         {routeOption.pageName}
                     </ActiveLink>
                 ))}
