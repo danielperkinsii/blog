@@ -1,5 +1,5 @@
 
-import styles from './layout.module.css'
+import layoutStyles from '../styles/layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -8,14 +8,14 @@ const name = 'Daniel Perkins'
 
 export default function Header() {
   const router = useRouter()
-  return (<header className={styles.header}>
+  return (<header className={layoutStyles.header}>
     { router.asPath === '/' || router.asPath === '/about' || router.asPath === '/reading' ? (
       <>
         <img
           src="/images/profile.jpeg"
-          className={`${styles.headerHomeImage} ${utilStyles.borderCircle} ${utilStyles.donutImgCrop}`}
+          className={`${layoutStyles.headerHomeImage} ${utilStyles.borderCircle} ${utilStyles.donutImgCrop}`}
           alt={name}/>
-        <h1 className={utilStyles.heading2Xl}>{name}</h1>
+        <h1 className={``}>{name}</h1>
       </>
     ) : (
       <>
@@ -23,7 +23,7 @@ export default function Header() {
           <a>
             <img
               src="/images/profile.jpeg"
-              className={`${styles.headerImage} ${utilStyles.borderCircle} ${utilStyles.donutImgCrop}`}
+              className={`${layoutStyles.headerImage} ${utilStyles.borderCircle} ${utilStyles.donutImgCrop}`}
               alt={name}/>
           </a>
         </Link>

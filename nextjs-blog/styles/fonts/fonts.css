@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "GlamorAbsolute";
+  src: url("./GlamorAbsoluteRegular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "TradeGothic";
+  src: url("./TradeGothicLTPro.otf") format("opentype");
+}
+
+.glamor {
+  font-family: "GlamorAbsolute";
+}
+
+.trade-gothic {
+  font-family: "TradeGothic";
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "GlamorAbsolute";
+}
+
+html, body {
+  font-family: "TradeGothic";
+}

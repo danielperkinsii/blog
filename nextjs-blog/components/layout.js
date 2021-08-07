@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import styles from './layout.module.css'
+import layoutStyles from '../styles/layout.module.css'
 import Link from 'next/link'
 import Header from './header'
 import Nav from './nav'
@@ -8,7 +8,7 @@ export const siteTitle = 'Daniel Perkins\' Website'
 
 export default function Layout({ children, home }) {
   return (
-    <div className={styles.container}>
+    <div className={layoutStyles.container}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -22,7 +22,7 @@ export default function Layout({ children, home }) {
       <Nav/> {/* Nav component */}
       <main>{children}</main>
       {!home && (
-        <div className={styles.backToHome}>
+        <div className={layoutStyles.backToHome}>
           <Link href="/">
             <a>← Back to home</a>
           </Link>

@@ -10,7 +10,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-            <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"/>
+          <link href="//db.onlinewebfonts.com/c/c2c4d33b4f77a8276a5b26486af340eb?family=Glamour+Absolute+regular" rel="stylesheet" type="text/css"/>
             {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script
             async
