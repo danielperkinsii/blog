@@ -2,12 +2,12 @@
 import layoutStyles from '../styles/layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
+import { NextRouter, useRouter } from 'next/router'
 
 const name = 'Daniel Perkins'
 
 export default function Header() {
-  const router = useRouter()
+  const router: NextRouter = useRouter()
   return (<header className={layoutStyles.header}>
     { router.asPath === '/' || router.asPath === '/about' || router.asPath === '/reading' ? (
       <>

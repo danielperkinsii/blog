@@ -3,10 +3,11 @@ import layoutStyles from '../styles/layout.module.css'
 import Link from 'next/link'
 import Header from './header'
 import Nav from './nav'
+import React from 'react'
 
 export const siteTitle = 'Daniel Perkins\' Website'
 
-export default function Layout({ children, home }) {
+export default function Layout({ children, home }: { children: React.ReactNode, home?: boolean}) {
   return (
     <div className={layoutStyles.container}>
       <Head>

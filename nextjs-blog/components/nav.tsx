@@ -4,16 +4,16 @@ import { useState } from 'react'
 export default function nav() {
     const routeOptions = [
         {
-            'route': '/',
-            'pageName': 'Blog'
+            route: '/',
+            pageName: 'Blog'
         },
         {
-            'route': '/about',
-            'pageName': 'About'
+            route: '/about',
+            pageName: 'About'
         },
         {
-            'route': '/reading',
-            'pageName': 'Reading'
+            route: '/reading',
+            pageName: 'Reading'
         }
     ]
 
