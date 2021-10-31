@@ -7,7 +7,7 @@ import React from 'react'
 
 export const siteTitle = 'Daniel Perkins\' Website'
 
-export default function Layout({ children, home }: { children: React.ReactNode, home?: boolean}) {
+export default function Layout({ children, home }: { children: any, home?: boolean}) {
   return (
     <div className={layoutStyles.container}>
       <Head>
