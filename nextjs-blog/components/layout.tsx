@@ -4,10 +4,12 @@ import Link from 'next/link'
 import Header from './header'
 import Nav from './nav'
 import React from 'react'
-
+type Props = {
+  children: React.ReactNode;
+};
 export const siteTitle = 'Daniel Perkins\' Website'
 
-export default function Layout({ children, home }: { children: any, home?: boolean}) {
+export default function Layout({ children, home }: { children: Props, home?: boolean}) {
   return (
     <div className={layoutStyles.container}>
       <Head>

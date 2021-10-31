@@ -2,7 +2,7 @@ import { NextRouter, useRouter } from 'next/router'
 import React from 'react'
 import utilStyles from '../styles/utils.module.css'
 
-export default function ActiveLink({ children, hrefLink }: { children: any, hrefLink: string }) {
+export default function ActiveLink({ children, hrefLink }: { children: React.ReactNode, hrefLink: string, pageName: string}) {
   const router = useRouter()
   const selected: string = router.asPath === hrefLink ? utilStyles.selected : ''
 

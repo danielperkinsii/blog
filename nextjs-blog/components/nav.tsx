@@ -16,13 +16,17 @@ export default function nav() {
             pageName: 'Reading'
         }
     ]
+    type RouteAttrs = {
+        route: string;
+        pageName: string
+    }
 
-    const [routes, setRoutes] = useState(routeOptions)
+    const [routes, setRoutes] = useState<RouteAttrs[]>(routeOptions)
     return (
         <>
             <nav>
-                {routes.map( routeOption => (
-                    <ActiveLink key={routeOption.pageName} hrefLink={routeOption.route} pageName={routeOption.pageName}>
+                {routes.map( (routeOption: RouteAttrs) => (
+                    <ActiveLink key={routeOption.pageName} hrefLink={routeOption.route} pageName={(routeOption.pageName)}>
                         {routeOption.pageName}
                     </ActiveLink>
                 ))}
