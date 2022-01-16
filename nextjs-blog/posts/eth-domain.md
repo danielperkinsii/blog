@@ -6,8 +6,8 @@ date: '2022-01-16'
 It comes down to asymmetric upside of a technology that keeps non-fungible, public records.
 
 the clearest use cases for blockchain tech right now are:
-1. 1 - inflation and fraud proof currency. 
-2. 2 - verifiable identity across the web (the [.eth domain](https://app.ens.domains/)).
+1. inflation and fraud proof currency. 
+2. verifiable identity across the web (the [.eth domain](https://app.ens.domains/)).
 
 The asymmetric upside is similar when adopting any new tech. Asymmetric upside means the upside potential is much greater than the downside risk. You're betting that blockchain tech, specifically [Ethereum](https://ethereum.org/en/), will be a widely adopted way to verify identity on the web.
 
