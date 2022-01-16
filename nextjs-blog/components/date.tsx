@@ -7,5 +7,5 @@ export default function Date({ dateString }: { dateString: string }) {
   } else {
     console.log('Date not parsed', 'date: ', date, 'dateString', dateString)
   }
-  return ''
+  return null
 }
