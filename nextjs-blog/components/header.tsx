@@ -1,6 +1,4 @@
 
-import layoutStyles from '../styles/layout.module.css'
-import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 import { NextRouter, useRouter } from 'next/router'
 import Image from 'next/image'
@@ -9,16 +7,16 @@ const name = 'Daniel Perkins'
 
 export default function Header() {
   const router: NextRouter = useRouter()
-  return (<header className={layoutStyles.header}>
+  return (<header className="">
     { router.asPath === '/' || router.asPath === '/about' || router.asPath === '/reading' ? (
       <>
         <Image
           src="/images/profile.png"
-          className={`${layoutStyles.headerHomeImage} ${utilStyles.borderCircle} ${utilStyles.donutImgCrop}`}
+          className="rounded-full"
           alt={name}
           height='300'
           width='300'/>
-        <h1 className={``}>{name}</h1>
+        <h1 className="text-4xl text-center">{name}</h1>
       </>
     ) : (
       <>
@@ -26,15 +24,15 @@ export default function Header() {
           <a>
             <Image
               src="/images/profile.png"
-              className={`${layoutStyles.headerImage} ${utilStyles.borderCircle} ${utilStyles.donutImgCrop}`}
+              className="rounded-full"
               alt={name}
               height='180'
               width='180'/>
           </a>
         </Link>
-        <h2 className={utilStyles.headingLg}>
+        <h2 className="">
           <Link href="/">
-            <a className={utilStyles.colorInherit}>{name}</a>
+            <a className="text-4xl text-center no-underline text-black">{name}</a>
           </Link>
         </h2>
       </>

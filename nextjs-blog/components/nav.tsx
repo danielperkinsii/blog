@@ -5,7 +5,7 @@ export default function nav() {
     const routeOptions = [
         {
             route: '/',
-            pageName: 'Blog'
+            pageName: 'Home'
         },
         {
             route: '/about',
@@ -23,7 +23,7 @@ export default function nav() {
 
     const [routes, setRoutes] = useState<RouteAttrs[]>(routeOptions)
     return (
-        <>
+        <div>
             <nav>
                 {routes.map( (routeOption: RouteAttrs) => (
                     <ActiveLink key={routeOption.pageName} hrefLink={routeOption.route} pageName={(routeOption.pageName)}>
@@ -31,6 +31,6 @@ export default function nav() {
                     </ActiveLink>
                 ))}
             </nav>
-        </>
+        </div>
     )
 }

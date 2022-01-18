@@ -2,7 +2,6 @@ import Head from 'next/head'
 import Link from 'next/link'
 import React, { useState, useEffect } from 'react'
 import Layout, { siteTitle } from '../components/layout'
-import utilStyles from '../styles/utils.module.css'
 import { getSortedPostsData } from '../lib/posts'
 import Date from '../components/date'
 import randomQuote from '../lib/quotes'
@@ -21,19 +20,20 @@ export default function Home({ allPostsData }) {
         <title>{siteTitle}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section>
-        <p className={`${utilStyles.paragraphXl}`}>{quote}</p>
+      {/* make this a component */}
+      <section className="max-w-sm">
+        <p className="my-4 text-gray-700">{quote}</p>
       </section>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
+      <section className="">
+        <h2 className="text-2xl">Blog</h2>
+        <ul>
           {allPostsData.map(({id, date, title}) => (
-            <li className={utilStyles.listItem} key={id}>
+            <li className="max-w-sm h-20 my-2 mx-0 border border-black hover:border-blue-500 p-2 list-none" key={id}>
               <Link href={`/posts/${id}`}>
-                <a>{title}</a>
+                <a className="text-blue-500 font-semibold text-lg no-underline">{title}</a>
               </Link>
               <br />
-              <small className={utilStyles.lightText}>
+              <small className="">
                 <Date dateString={date} />
               </small>
             </li>

@@ -1,10 +1,9 @@
-import { NextRouter, useRouter } from 'next/router'
+import { useRouter } from 'next/router'
 import React from 'react'
-import utilStyles from '../styles/utils.module.css'
 
 export default function ActiveLink({ children, hrefLink }: { children: React.ReactNode, hrefLink: string, pageName: string}) {
   const router = useRouter()
-  const selected: string = router.asPath === hrefLink ? utilStyles.selected : ''
+  const selected: string = router.asPath === hrefLink ? 'text-blue-800' : 'no-underline'
 
   const handleClick = (e: any): void => {
     e.preventDefault()
@@ -13,7 +12,7 @@ export default function ActiveLink({ children, hrefLink }: { children: React.Rea
 
   return (
     <>
-        <a href={hrefLink} onClick={handleClick} className={`${utilStyles.marginSides10px} ${selected}`}>
+        <a href={hrefLink} onClick={handleClick} className={`${selected} mx-4`}>
             {children}
         </a>
     </>
