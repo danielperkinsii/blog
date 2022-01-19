@@ -1,5 +1,5 @@
 ---
-title: 'why you should get an .eth domain.'
+title: 'Why you should get an .eth domain.'
 date: '2022-01-16'
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: 'how to work with laser focus.'
+title: 'How to work with laser focus.'
 date: '2022-01-18'
 ---
 
