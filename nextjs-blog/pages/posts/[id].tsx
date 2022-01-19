@@ -13,7 +13,6 @@ export default function Post({
     contentHtml: string
   }
 }) {
-  console.log(postData.contentHtml)
   return (
     <Layout>
       <Head>

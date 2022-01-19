@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 @layer components {
+    h2 {
+        @apply mt-2 -mb-2 font-semibold text-lg;
+    }
+    h3 {
+        @apply font-semibold;
+    }
     p {
       @apply py-2 leading-5;
     }

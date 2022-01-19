@@ -8,7 +8,7 @@ export const siteTitle = 'Daniel\'s Blog 💡'
 
 export default function Layout({ children, home }: { children: React.ReactNode, home?: boolean }) {
   return (
-    <div className="flex flex-col items-center p-4 tracking-tight">
+    <div className="flex flex-col items-center p-4">
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
