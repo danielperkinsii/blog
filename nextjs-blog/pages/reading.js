@@ -4,7 +4,7 @@ export default function Reading() {
     return (
         <>
             <Layout reading>
-                <p className="text-red-500">A list of useful books, blog posts, and articles.</p>
+                <p className="font-semibold">A list of useful books, blog posts, and articles.</p>
                 <ul>
                     <li><a href='https://copywritingcourse.com/content-creation-process/'>Copy Writing</a></li>
                     <li><a href='http://www.paulgraham.com/makersschedule.html'>Maker's Schedule, Manager's Schedule</a></li>
