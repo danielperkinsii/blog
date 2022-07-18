@@ -11,11 +11,11 @@ export default function Header() {
     { router.asPath === '/' || router.asPath === '/about' || router.asPath === '/reading' ? (
       <>
         <Image
-          src="/images/profile.png"
-          className="rounded-full"
+          src="/images/profile.jpg"
+          className="rounded-2xl"
           alt={name}
-          height='300'
-          width='300'/>
+          height='512'
+          width='384'/>
         <h1 className="text-4xl text-center">{name}</h1>
       </>
     ) : (
@@ -23,11 +23,11 @@ export default function Header() {
         <Link href="/">
           <a>
             <Image
-              src="/images/profile.png"
-              className="rounded-full"
+              src="/images/profile.jpg"
+              className="rounded-2xl"
               alt={name}
-              height='180'
-              width='180'/>
+              height='400'
+              width='300'/>
           </a>
         </Link>
         <h2 className="">
