@@ -1,4 +1,7 @@
-# Coding Bootcamps: The Real Picture and Why You’re Probably Not the Right Fit.
+---
+title: 'Coding Bootcamps: The Real Picture and Why You’re Probably Not the Right Fit.'
+date: '2022-07-17'
+---
 
 For my friends in the corporate world thinking about doing a coding bootcamp, here’s why the answer is likely no.
 
