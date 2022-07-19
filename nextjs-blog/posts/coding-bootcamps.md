@@ -7,8 +7,7 @@ For my friends in the corporate world thinking about doing a coding bootcamp, he
 
 Nearly every time I’ve had this conversation with a friend, it’s not about learning to code. It’s about career aspirations, ambition, and being unhappy in your role. 
 
-### Litmus Test
-
+## Litmus Test
 I can tell your motivation for considering a bootcamp by asking you one simple question: How much time have you already spent learning to code?
 
 10 hours? 1 hour? Zero?
@@ -23,8 +22,7 @@ Bootcamps are in the business of selling the American dream cheaper and faster t
 
 However, don’t pick a bootcamp because you’re looking for the silver bullet to reaching new heights in your career. In fact, once you graduate and land a job, you’re hitting reset on your career progress.
 
-### My Experience and What to Expect
-
+## My Experience and What to Expect
 I did one called General Assembly and it took 12 weeks. We spent 8 hrs a day on lecture and labs (in-class projects) and 4 hrs a day doing homework. Monday - Friday. It cost $15k but it’s probably more expensive now. I did the software development track, which taught full-stack web development. 
 
 I came out of it with a portfolio of 3-ish apprentice-level projects and a polished resume filled with industry buzzwords I half-understood. Fun fact: I once got roasted in an interview for not knowing something the GA “Career Coach” told me to put on my resume.
@@ -41,8 +39,7 @@ Luckily, there are free online resources like leetcode and hackerrank to practic
 
 It took me 6 months of job searching before I landed two offers in the same week. And your experience will probably be the same.
 
-### The Hiring Climate
-
+## The Hiring Climate
 But wait Danny! I’m reading everywhere that software engineers are in HIGH demand! Totally. But the nuance is that senior talent is in high demand. Plus industry hype and popularity of bootcamps has made junior devs in ultra high supply. So not only are junior devs not highly sought after, there are loads of them trying to land the same few jobs.
 
 I think my final numbers were ~500 applications submitted, 5 interviews, and 2 offers. The job I actually got was because I knew a friend of a friend who agreed to pass my resume along. Networking is key.
@@ -51,7 +48,7 @@ If we could build you a time machine and send you back, I would tell you to get 
 
 If you’re just bored of your job or your industry, there are better ways to make a change than pressing reset.
 
-### Resources:
+## Resources
 Before deciding on bootcamp. Here are some things you should dig into:
 
 - Dedicate 2-3 weekends to see if you really like coding/webdev. I suggest picking one of these and sticking with it. [The Odin Project](https://www.theodinproject.com/paths/foundations/courses/foundations), [freeCodeCamp](https://www.freecodecamp.org/), and [Codecademy](https://www.codecademy.com/)
