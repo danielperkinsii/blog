@@ -19,8 +19,8 @@ export default function Layout({ children, home }: { children: React.ReactNode, 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@danielperkinsii" />
       </Head>
-      <Header/> {/* Header component */}
-      <Nav/> {/* Nav component */}
+      <Header/>
+      <Nav/>
       <main>{children}</main>
       {!home && (
         <div className="p-4 text-blue-500 tracking-tight font-bold hover:text-blue-600">

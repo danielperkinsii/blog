@@ -28,7 +28,7 @@ export default function Home({ allPostsData }) {
         <h2 className="text-2xl">Blog</h2>
         <ul>
           {allPostsData.map(({id, date, title}) => (
-            <li className="max-w-sm h-20 my-2 mx-0 border border-black hover:border-blue-500 p-2 list-none" key={id}>
+            <li className="max-w-sm min-h-20 my-2 mx-0 border border-black hover:border-blue-500 p-2 list-none" key={id}>
               <Link href={`/posts/${id}`}>
                 <a className="text-blue-500 font-semibold text-lg no-underline">{title}</a>
               </Link>
