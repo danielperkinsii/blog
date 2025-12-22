@@ -23,9 +23,9 @@ export default function Layout({ children, home }: { children: React.ReactNode, 
       <Nav/>
       <main>{children}</main>
       {!home && (
-        <div className="p-4 text-blue-500 tracking-tight font-bold hover:text-blue-600">
-          <Link href="/">
-            <a>← Back to home</a>
+        <div className="p-4 tracking-tight font-bold">
+          <Link href="/" className="text-blue-500 hover:text-blue-600">
+            ← Back to home
           </Link>
         </div>
       )}
