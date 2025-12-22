@@ -13,7 +13,7 @@ export default function nav() {
         },
         {
             route: '/reading',
-            pageName: 'Reading'
+            pageName: 'Vlogs'
         }
     ]
     type RouteAttrs = {
@@ -23,8 +23,8 @@ export default function nav() {
 
     const [routes, setRoutes] = useState<RouteAttrs[]>(routeOptions)
     return (
-        <div>
-            <nav>
+        <div className="sticky top-0 z-50 bg-white w-full flex justify-center">
+            <nav className="max-w-4xl mx-auto px-4 py-4">
                 {routes.map( (routeOption: RouteAttrs) => (
                     <ActiveLink key={routeOption.pageName} hrefLink={routeOption.route} pageName={(routeOption.pageName)}>
                         {routeOption.pageName}
