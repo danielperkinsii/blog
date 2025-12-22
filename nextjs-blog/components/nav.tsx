@@ -12,7 +12,7 @@ export default function nav() {
             pageName: 'About'
         },
         {
-            route: '/reading',
+            route: '/vlogs',
             pageName: 'Vlogs'
         }
     ]
