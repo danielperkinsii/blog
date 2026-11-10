@@ -10,7 +10,10 @@ const REDIRECT_URI = `http://localhost:${PORT}/callback`
 const SCOPE = 'read,activity:read_all'
 
 const envText = existsSync(ENV_FILE) ? readFileSync(ENV_FILE, 'utf8') : ''
-const readEnv = (name) => (envText.match(new RegExp(`^${name}=(.*)$`, 'm')) || [])[1]?.trim()
+const readEnv = (name) => {
+  const value = (envText.match(new RegExp(`^${name}=(.*)$`, 'm')) || [])[1]?.trim()
+  return value?.replace(/^(["'])(.*)\1$/, '$2')
+}
 const clientId = readEnv('STRAVA_CLIENT_ID')
 const clientSecret = readEnv('STRAVA_CLIENT_SECRET')
 

@@ -17,6 +17,7 @@ const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', '
 export interface RunActivity {
   id: string
   name: string
+  sportType: string
   date: string
   meters: number
   movingSeconds: number
@@ -156,7 +157,8 @@ function pearson(pairs: [number, number][]) {
 }
 
 export function isMarathon(run: RunActivity) {
-  return run.meters >= MARATHON_MIN_METERS && run.meters <= MARATHON_MAX_METERS
+  // Trail and treadmill runs of marathon length still count as training, not as races.
+  return run.sportType === 'Run' && run.meters >= MARATHON_MIN_METERS && run.meters <= MARATHON_MAX_METERS
 }
 
 export function buildTrainingData(

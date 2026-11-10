@@ -15,7 +15,7 @@ export default function SplitsChart({ blocks }: { blocks: Block[] }) {
 
   return (
     <ChartFrame label="Second half minus first half for each marathon, in minutes">
-      {({ width, showTip, hideTip }) => {
+      {({ width, tipHandlers }) => {
         const band = (width - PAD_LEFT - PAD_RIGHT) / races.length
         const barWidth = band * BAR_FILL_RATIO
         const y = linearScale(lowest, highest, CHART_HEIGHT - PAD_BOTTOM, PAD_TOP)
@@ -66,16 +66,13 @@ export default function SplitsChart({ blocks }: { blocks: Block[] }) {
                     width={band}
                     height={CHART_HEIGHT - PAD_TOP - PAD_BOTTOM}
                     fill="transparent"
-                    onPointerMove={(event) =>
-                      showTip(event, [
+                    {...tipHandlers([
                         race.race,
                         `${race.dateDisplay} · ${race.finish}`,
                         `First half ${race.firstHalf}`,
                         `Second half ${race.secondHalf}`,
                         `Change ${race.splitDiff}`,
-                      ])
-                    }
-                    onPointerLeave={hideTip}
+                      ])}
                   />
                 </g>
               )

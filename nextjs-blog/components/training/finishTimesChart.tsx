@@ -21,12 +21,15 @@ export default function FinishTimesChart({ blocks }: { blocks: Block[] }) {
 
   return (
     <ChartFrame label="Marathon finish times over the years; higher is faster">
-      {({ width, showTip, hideTip }) => {
+      {({ width, tipHandlers }) => {
         const x = linearScale(firstDay, lastDay, PAD_LEFT, width - PAD_RIGHT)
         const y = linearScale(minS, maxS, PAD_TOP, CHART_HEIGHT - PAD_BOTTOM)
         const yearCount = lastYear - firstYear + 1
         const yearStep = Math.max(1, Math.ceil((yearCount * MIN_YEAR_LABEL_PX) / (width - PAD_LEFT - PAD_RIGHT)))
-        const years = stepTicks(firstYear, lastYear, 1).filter((year) => (lastYear - year) % yearStep === 0)
+        const midYearX = (year: number) => x(dayNumber(`${year}-07-01`))
+        const years = stepTicks(firstYear, lastYear, 1)
+          .filter((year) => (lastYear - year) % yearStep === 0)
+          .filter((year) => midYearX(year) >= PAD_LEFT && midYearX(year) <= width - PAD_RIGHT)
         const path = points.map((p, i) => `${i === 0 ? 'M' : 'L'}${x(p.day)},${y(p.finishS)}`).join('')
         return (
           <>
@@ -34,7 +37,7 @@ export default function FinishTimesChart({ blocks }: { blocks: Block[] }) {
             {years.map((year) => (
               <text
                 key={year}
-                x={x(dayNumber(`${year}-07-01`))}
+                x={midYearX(year)}
                 y={CHART_HEIGHT - 8}
                 textAnchor="middle"
                 className="fill-gray-500 text-xs"
@@ -71,15 +74,12 @@ export default function FinishTimesChart({ blocks }: { blocks: Block[] }) {
                 cy={y(p.finishS)}
                 r={HIT_RADIUS}
                 fill="transparent"
-                onPointerMove={(event) =>
-                  showTip(event, [
+                {...tipHandlers([
                     p.race,
                     p.dateDisplay,
                     `${p.finish} · ${p.pace} /mi`,
                     p.isPr ? 'Personal best at the time' : '',
-                  ])
-                }
-                onPointerLeave={hideTip}
+                  ])}
               />
             ))}
           </>

@@ -48,7 +48,7 @@ export default function WeeklyMilesChart({
   return (
     <div>
       <ChartFrame label="Weekly miles in the weeks before each marathon">
-        {({ width, showTip, hideTip }) => {
+        {({ width, tipHandlers }) => {
           const x = linearScale(weekCount, 1, PAD_LEFT + 8, width - PAD_RIGHT)
           const y = linearScale(0, topMiles, CHART_HEIGHT - PAD_BOTTOM, PAD_TOP)
           const weekStep = width < NARROW_PX ? 4 : width < MEDIUM_PX ? 2 : 1
@@ -79,14 +79,11 @@ export default function WeeklyMilesChart({
                       cy={y(miles)}
                       r={HIT_RADIUS}
                       fill="transparent"
-                      onPointerMove={(event) =>
-                        showTip(event, [
+                      {...tipHandlers([
                           block.race,
                           `${i + 1} ${i === 0 ? 'week' : 'weeks'} out`,
                           `${miles.toFixed(1)} mi`,
-                        ])
-                      }
-                      onPointerLeave={hideTip}
+                        ])}
                     />
                   </g>
                 )),

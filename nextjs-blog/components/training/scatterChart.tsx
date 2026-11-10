@@ -28,16 +28,19 @@ export default function ScatterChart({ blocks, metric }: { blocks: Block[]; metr
   const minValue = Math.min(...points.map(valueOf))
   const maxValue = Math.max(...points.map(valueOf))
   const padding = (maxValue - minValue || 1) * X_PADDING_RATIO
-  const xTicks = Array.from(
+  const isWholeNumberMetric = points.every((p) => Number.isInteger(valueOf(p)))
+  const evenTicks = Array.from(
     { length: X_TICK_COUNT },
     (_, i) => minValue + ((maxValue - minValue) * i) / (X_TICK_COUNT - 1),
   )
+  const roundedTicks = evenTicks.map(Math.round).filter((tick, i, all) => all.indexOf(tick) === i)
+  const xTicks = isWholeNumberMetric ? roundedTicks : evenTicks
   const dotClass = (block: Block) =>
     block.id === latest.id ? 'fill-blue-500' : block.id === fastest.id ? 'fill-orange-500' : 'fill-gray-400'
 
   return (
     <ChartFrame label="Finish time against the chosen block number; higher is faster">
-      {({ width, showTip, hideTip }) => {
+      {({ width, tipHandlers }) => {
         const x = linearScale(minValue - padding, maxValue + padding, PAD_LEFT, width - PAD_RIGHT)
         const y = linearScale(minS, maxS, PAD_TOP, CHART_HEIGHT - PAD_BOTTOM)
         const anchorOf = (px: number) => (px > width - EDGE_PX ? 'end' : px < PAD_LEFT + EDGE_PX ? 'start' : 'middle')
@@ -70,10 +73,7 @@ export default function ScatterChart({ blocks, metric }: { blocks: Block[]; metr
                 cy={y(p.finishS)}
                 r={HIT_RADIUS}
                 fill="transparent"
-                onPointerMove={(event) =>
-                  showTip(event, [p.race, p.dateDisplay, `Finish ${p.finish}`, `Block: ${formatValue(valueOf(p))}`])
-                }
-                onPointerLeave={hideTip}
+                {...tipHandlers([p.race, p.dateDisplay, `Finish ${p.finish}`, `Block: ${formatValue(valueOf(p))}`])}
               />
             ))}
           </>

@@ -4,7 +4,7 @@ const API_URL = 'https://www.strava.com/api/v3'
 const TOKEN_URL = 'https://www.strava.com/oauth/token'
 const PAGE_SIZE = 200
 const MAX_PAGES = 40
-const PAGE_REQUESTS_AT_ONCE = 8
+const PAGE_REQUESTS_AT_ONCE = 5
 const LAP_REQUESTS_AT_ONCE = 10
 const RUN_SPORT_TYPES = ['Run', 'TrailRun', 'VirtualRun']
 
@@ -41,7 +41,12 @@ async function getAccessToken() {
     }),
   })
   if (!response.ok) throw new Error(`Strava token refresh failed: ${response.status}`)
-  const token = (await response.json()) as { access_token: string }
+  const token = (await response.json()) as { access_token: string; refresh_token?: string }
+  const hasRotatedRefreshToken = Boolean(token.refresh_token) && token.refresh_token !== process.env.STRAVA_REFRESH_TOKEN
+  if (hasRotatedRefreshToken) {
+    // Strava may replace the refresh token; the env var can't update itself, so the old one will stop working.
+    console.warn('Strava issued a new refresh token. Run `npm run strava:auth` and update STRAVA_REFRESH_TOKEN in Vercel.')
+  }
   return token.access_token
 }
 
@@ -67,6 +72,7 @@ async function fetchRuns(accessToken: string): Promise<RunActivity[]> {
           runs.push({
             id: String(activity.id),
             name: activity.name,
+            sportType: activity.sport_type,
             date: activity.start_date_local.slice(0, 10),
             meters: activity.distance,
             movingSeconds: activity.moving_time,

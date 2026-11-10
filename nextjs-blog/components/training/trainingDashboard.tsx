@@ -64,7 +64,7 @@ export default function TrainingDashboard({ data }: { data: TrainingData }) {
 
   return (
     <div className="space-y-6">
-      <p className="text-md max-w-2xl text-gray-900">
+      <p className="max-w-2xl text-gray-900">
         {latest.id === fastest.id ? (
           <>
             My latest marathon, <b>{latest.race}</b>, is my fastest yet at <b>{latest.finish}</b>.

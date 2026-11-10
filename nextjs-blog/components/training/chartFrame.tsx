@@ -9,10 +9,18 @@ export const PAD_BOTTOM = 28
 export const PAD_LEFT = 48
 export const PAD_RIGHT = 16
 
+const TIP_TARGET_ATTRIBUTE = 'data-tip-target'
+
+interface TipHandlers {
+  onPointerMove: (event: React.PointerEvent) => void
+  onPointerDown: (event: React.PointerEvent) => void
+  onPointerLeave: (event: React.PointerEvent) => void
+  [TIP_TARGET_ATTRIBUTE]: true
+}
+
 export interface ChartContext {
   width: number
-  showTip: (event: React.PointerEvent | React.MouseEvent, lines: string[]) => void
-  hideTip: () => void
+  tipHandlers: (lines: string[]) => TipHandlers
 }
 
 interface Tip {
@@ -53,7 +61,18 @@ export default function ChartFrame({
     return () => observer.disconnect()
   }, [])
 
-  const showTip: ChartContext['showTip'] = (event, lines) => {
+  const isTipOpen = tip !== null
+  useEffect(() => {
+    if (!isTipOpen) return
+    const closeOnOutsideTap = (event: PointerEvent) => {
+      const target = event.target as Element | null
+      if (!target?.closest(`[${TIP_TARGET_ATTRIBUTE}]`)) setTip(null)
+    }
+    document.addEventListener('pointerdown', closeOnOutsideTap)
+    return () => document.removeEventListener('pointerdown', closeOnOutsideTap)
+  }, [isTipOpen])
+
+  const showTip = (event: React.PointerEvent, lines: string[]) => {
     const container = containerRef.current
     if (!container) return
     const bounds = container.getBoundingClientRect()
@@ -63,13 +82,21 @@ export default function ChartFrame({
     const x = overflowsRight ? Math.max(0, pointerX - TIP_GAP - TIP_MAX_WIDTH) : pointerX + TIP_GAP
     setTip({ x, y: pointerY + TIP_GAP, lines: lines.filter(Boolean) })
   }
-  const hideTip = () => setTip(null)
+  const tipHandlers: ChartContext['tipHandlers'] = (lines) => ({
+    onPointerMove: (event) => showTip(event, lines),
+    // A tap fires pointerdown but no pointermove, and its pointerleave would close the tip straight away.
+    onPointerDown: (event) => showTip(event, lines),
+    onPointerLeave: (event) => {
+      if (event.pointerType === 'mouse') setTip(null)
+    },
+    [TIP_TARGET_ATTRIBUTE]: true,
+  })
 
   return (
     <div ref={containerRef} className="relative w-full" style={{ minHeight: height }}>
       {width > 0 && (
         <svg width={width} height={height} role="img" aria-label={label} className="block overflow-visible">
-          {children({ width, showTip, hideTip })}
+          {children({ width, tipHandlers })}
         </svg>
       )}
       {tip && (

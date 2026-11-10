@@ -22,7 +22,7 @@ export default function SignalsChart({
 
   return (
     <ChartFrame height={barsHeight + AXIS_HEIGHT} label="Correlation of each block number with finish time">
-      {({ width, showTip, hideTip }) => {
+      {({ width, tipHandlers }) => {
         const x = linearScale(-1, 1, VALUE_GUTTER, width - VALUE_GUTTER)
         const ticks = width < NARROW_PX ? [-1, 0, 1] : [-1, -0.5, 0, 0.5, 1]
         return (
@@ -66,14 +66,11 @@ export default function SignalsChart({
                     fill="transparent"
                     className="cursor-pointer"
                     onClick={() => onPick(row.key)}
-                    onPointerMove={(event) =>
-                      showTip(event, [
+                    {...tipHandlers([
                         row.label,
                         `r = ${row.r.toFixed(2)} across ${row.n} blocks`,
                         isNegative ? 'More went with faster finishes' : 'More went with slower finishes',
-                      ])
-                    }
-                    onPointerLeave={hideTip}
+                      ])}
                   />
                 </g>
               )

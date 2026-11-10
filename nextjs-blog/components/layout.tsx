@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Header from './header'
 import Nav from './nav'
 import React from 'react'
+import { FAVICON_HREF } from '../lib/site'
 
 export const siteTitle = 'Daniel\'s Blog 💡'
 
@@ -10,7 +11,7 @@ export default function Layout({ children, home }: { children: React.ReactNode, 
   return (
     <div className="flex flex-col items-center p-4">
       <Head>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌞</text></svg>" />
+        <link rel="icon" href={FAVICON_HREF} />
         <meta
           name="description"
           content="Having a lot of fun over here."
