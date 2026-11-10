@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "strava:auth": "node scripts/strava-auth.mjs"
   },
   "dependencies": {
     "date-fns": "^2.16.1",
